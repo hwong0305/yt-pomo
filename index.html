@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+    <link rel="stylesheet" href="src/index.css" />
+    <title>Pompom Youtube</title>
+  </head>
+  <body>
+    <div class="ui middle aligned center aligned grid">
+      <div class="row">
+        <h1>Pomodoro Timer</h1>
+      </div>
+      <div class="row">
+        <div class="ui input">
+          <input type="text" placeholder="Youtube Link..." id="yt" />
+          <button class="ui button primary" id="load">Load</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ui input">
+          <input type="text" placeholder="Start Time (mm:ss)" id="startTime" />
+        </div>
+      </div>
+      <div class="row">
+        <div id="player"></div>
+      </div>
+      <div class="row">
+        <div class="six wide column">
+          <h1>Break Length</h1>
+          <h2 id="break">
+            <button class="ui icon button basic inverted" name="down">
+              <i class="icon chevron down"></i>
+            </button>
+            <span style="margin: 0 10px 0 7.5px" id="breakLength">5</span>
+            <button class="ui icon button basic inverted" name="up">
+              <i class="icon chevron up"></i>
+            </button>
+          </h2>
+        </div>
+        <div class="six wide column">
+          <h1>Session Length</h1>
+          <h2 id="session">
+            <button class="ui icon button basic inverted" name="down">
+              <i class="icon chevron down"></i>
+            </button>
+            <span style="margin: 0 10px 0 7.5px" id="sessionLength">25</span>
+            <button class="ui icon button basic inverted" name="up">
+              <i class="icon chevron up"></i>
+            </button>
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six wide column lance">
+          <h1 class="ui huge header" style="color: white">Timer</h1>
+          <h2 id="time">25:00</h2>
+          <div>
+            <button class="ui icon button basic inverted" id="playPause">
+              <i class="play icon"></i>
+            </button>
+            <button class="ui icon button basic inverted" id="reset">
+              <i class="sync icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  </body>
+</html>

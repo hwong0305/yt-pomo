@@ -1,0 +1,12 @@
+{
+  "name": "pom-pom",
+  "version": "1.0.0",
+  "description": "A Pomodoro Timer that allows user to use 15 second clips from YouTube",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

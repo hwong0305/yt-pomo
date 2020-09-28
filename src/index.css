@@ -1,0 +1,28 @@
+body {
+  background: navy;
+  color: white;
+}
+
+.box {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.setting {
+  margin-right: 3.5px;
+}
+
+#player {
+  position: absolute;
+  visibility: hidden;
+}
+
+.palmer {
+  max-width: 450px;
+}
+
+.lance {
+  border: solid 1px white;
+  border-radius: 15px;
+  padding: 10px 0 10px 0;
+}
