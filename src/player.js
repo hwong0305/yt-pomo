@@ -62,7 +62,6 @@ playButton.addEventListener("click", function (event) {
   if (!player || !youtubeContainer.value) return;
 
   if (!playing) {
-    setPlayer();
     const endTime =
       Date.now() +
       Number(timeContainer.innerText.split(":")[1]) * 1000 +
@@ -75,13 +74,17 @@ playButton.addEventListener("click", function (event) {
         timeContainer.innerText = "00:00";
         current = null;
         const parsedTime = Number(startTime.value.split(":")[0]) * 60 + Number(startTime.value.split(":")[1]);
-        player.seekTo(parsedTime);
+        player.cueVideoById({
+          videoId: youtubeContainer.value.split("?v=")[1],
+          startSeconds: parsedTime,
+        });
         player.playVideo();
         playing = false;
-        // Limit the clip to 15 seconds
+        // Limit the clip to 30 seconds
         setTimeout(() => {
           player.stopVideo();
-        }, 15000);
+          playButton.children[0].classList = "icon play";
+        }, 30000);
       } else {
         timeContainer.innerText = displayTime(endTime);
       }
@@ -128,16 +131,7 @@ function setPlayer() {
 }
 
 function onPlayerStateChange(event) {
-  if (event.data === 5) {
-    playButton.children[0].classList = "icon play";
-    if (state === "session") {
-      state = "break";
-      timeContainer.innerText = `${parseTimeDisplay(breakLength.innerText)}:00`;
-    } else {
-      state = "session";
-      timeContainer.innerText = `${parseTimeDisplay(sessionLength.innerText)}:00`;
-    }
-  }
+  console.log("event", event);
 }
 
 function onPlayerReady(event) {

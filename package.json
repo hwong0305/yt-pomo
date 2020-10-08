@@ -8,8 +8,9 @@
     }
   },
   "scripts": {
+    "build": "parcel build ./index.html",
     "start": "node src/app.js",
-    "build": "parcel build ./index.html"
+    "serve": "parcel serve ./index.html"
   },
   "keywords": [],
   "author": "",
