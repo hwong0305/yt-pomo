@@ -39,33 +39,21 @@ resetButton.onclick = () => {
 loadBtn.onclick = setPlayer;
 
 breakContainer.addEventListener("click", function (event) {
-  if (
-    event.target.getAttribute("name") === "down" ||
-    event.target.parentNode.getAttribute("name") === "down"
-  ) {
+  if (event.target.getAttribute("name") === "down" || event.target.parentNode.getAttribute("name") === "down") {
     if (breakLength.innerText === "1") return;
     breakLength.innerText = Number(breakLength.innerText) - 1;
   }
-  if (
-    event.target.getAttribute("name") === "up" ||
-    event.target.parentNode.getAttribute("name") === "up"
-  ) {
+  if (event.target.getAttribute("name") === "up" || event.target.parentNode.getAttribute("name") === "up") {
     breakLength.innerText = Number(breakLength.innerText) + 1;
   }
 });
 
 sessionContainer.addEventListener("click", function (event) {
-  if (
-    event.target.getAttribute("name") === "down" ||
-    event.target.parentNode.getAttribute("name") === "down"
-  ) {
+  if (event.target.getAttribute("name") === "down" || event.target.parentNode.getAttribute("name") === "down") {
     if (sessionLength.innerText === "1") return;
     sessionLength.innerText = Number(sessionLength.innerText) - 1;
   }
-  if (
-    event.target.getAttribute("name") === "up" ||
-    event.target.parentNode.getAttribute("name") === "up"
-  ) {
+  if (event.target.getAttribute("name") === "up" || event.target.parentNode.getAttribute("name") === "up") {
     sessionLength.innerText = Number(sessionLength.innerText) + 1;
   }
 });
@@ -74,6 +62,7 @@ playButton.addEventListener("click", function (event) {
   if (!player || !youtubeContainer.value) return;
 
   if (!playing) {
+    setPlayer();
     const endTime =
       Date.now() +
       Number(timeContainer.innerText.split(":")[1]) * 1000 +
@@ -85,12 +74,8 @@ playButton.addEventListener("click", function (event) {
         clearInterval(current);
         timeContainer.innerText = "00:00";
         current = null;
-        if (startTime.value !== undefined) {
-          const parsedTime =
-            Number(startTime.value.split(":")[0]) * 60 +
-            Number(startTime.value.split(":")[1]);
-          player.seekTo(parsedTime);
-        }
+        const parsedTime = Number(startTime.value.split(":")[0]) * 60 + Number(startTime.value.split(":")[1]);
+        player.seekTo(parsedTime);
         player.playVideo();
         playing = false;
         // Limit the clip to 15 seconds
@@ -112,9 +97,7 @@ playButton.addEventListener("click", function (event) {
 
 function displayTime(endTime) {
   const diff = endTime - Date.now();
-  return `${parseTimeDisplay(Math.floor(diff / 1000 / 60))}:${parseTimeDisplay(
-    Math.floor((diff / 1000) % 60)
-  )}`;
+  return `${parseTimeDisplay(Math.floor(diff / 1000 / 60))}:${parseTimeDisplay(Math.floor((diff / 1000) % 60))}`;
 }
 
 function parseTimeDisplay(time) {
@@ -153,9 +136,7 @@ function onPlayerStateChange(event) {
       timeContainer.innerText = `${parseTimeDisplay(breakLength.innerText)}:00`;
     } else {
       state = "session";
-      timeContainer.innerText = `${parseTimeDisplay(
-        sessionLength.innerText
-      )}:00`;
+      timeContainer.innerText = `${parseTimeDisplay(sessionLength.innerText)}:00`;
     }
   }
 }

@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "A Pomodoro Timer that allows user to use 15 second clips from YouTube",
   "main": "index.html",
+  "targets": {
+    "app": {
+      "distDir": "dist"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "build": "parcel build ./index.html"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
