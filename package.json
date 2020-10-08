@@ -2,7 +2,6 @@
   "name": "pom-pom",
   "version": "1.0.0",
   "description": "A Pomodoro Timer that allows user to use 15 second clips from YouTube",
-  "main": "index.html",
   "targets": {
     "app": {
       "distDir": "dist"
@@ -19,6 +18,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "cssnano": "^4.1.10"
+    "cssnano": "^4.1.10",
+    "parcel": "^2.0.0-beta.1"
   }
 }

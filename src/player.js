@@ -124,7 +124,6 @@ function setPlayer() {
       videoId: youtubeContainer.value.split("?v=")[1],
       startSeconds: 5,
     });
-    player.playVideo();
   }
 }
 
