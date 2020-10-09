@@ -24,6 +24,7 @@ const resetButton = document.getElementById("reset");
 
 resetButton.onclick = () => {
   player.stopVideo(); // always
+  playButton.children[0].classList = "icon play";
   if (state === "session") {
     state = "break";
     timeContainer.innerText = `${parseTimeDisplay(breakLength.innerText)}:00`;
@@ -68,6 +69,7 @@ playButton.addEventListener("click", function (event) {
       Number(timeContainer.innerText.split(":")[1]) * 1000 +
       Number(timeContainer.innerText.split(":")[0]) * 60 * 1000;
     playing = true;
+    playButton.children[0].classList = "icon pause";
 
     current = setInterval(() => {
       if (Date.now() >= endTime) {
@@ -80,7 +82,6 @@ playButton.addEventListener("click", function (event) {
           startSeconds: parsedTime,
         });
         player.playVideo();
-        playing = false;
         // Limit the clip to 30 seconds
         setTimeout(() => {
           player.stopVideo();
@@ -90,8 +91,6 @@ playButton.addEventListener("click", function (event) {
         timeContainer.innerText = displayTime(endTime);
       }
     }, 500);
-
-    playButton.children[0].classList = "icon pause";
   } else {
     playButton.children[0].classList = "icon play";
     player.stopVideo();
