@@ -23,6 +23,7 @@ const playButton = document.getElementById("playPause");
 const resetButton = document.getElementById("reset");
 
 resetButton.onclick = () => {
+  playing = false;
   player.stopVideo(); // always
   playButton.children[0].classList = "icon play";
   if (state === "session") {
