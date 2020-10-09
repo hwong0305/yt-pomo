@@ -23,6 +23,7 @@ const playButton = document.getElementById("playPause");
 const resetButton = document.getElementById("reset");
 
 resetButton.onclick = () => {
+  player.stopVideo(); // always
   if (state === "session") {
     state = "break";
     timeContainer.innerText = `${parseTimeDisplay(breakLength.innerText)}:00`;
@@ -93,6 +94,7 @@ playButton.addEventListener("click", function (event) {
     playButton.children[0].classList = "icon pause";
   } else {
     playButton.children[0].classList = "icon play";
+    player.stopVideo();
     clearInterval(current);
     playing = false;
   }
