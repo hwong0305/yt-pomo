@@ -26,16 +26,14 @@ resetButton.onclick = () => {
   playing = false;
   player.stopVideo(); // always
   playButton.children[0].classList = "icon play";
+  clearInterval(current);
+  current = null;
   if (state === "session") {
     state = "break";
     timeContainer.innerText = `${parseTimeDisplay(breakLength.innerText)}:00`;
   } else {
     state = "session";
     timeContainer.innerText = `${parseTimeDisplay(sessionLength.innerText)}:00`;
-  }
-  if (playing) {
-    clearInterval(current);
-    current = null;
   }
 };
 
